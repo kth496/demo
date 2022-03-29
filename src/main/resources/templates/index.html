@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<body>
+<div id="About" class="content">
+    <h1>About</h1>
+    <p>Custom Software Development Company.</p>
+</div>
+<div id="Products" class="content">
+    <h1>Products</h1>
+    <p>Building tailored software to address critical needs of global enterprise.</p>
+</div>
+<div id="Technology" class="content">
+    <h1>Technology</h1>
+    <p>Machine Learning, Artificial Intelligent, Cloud Platform.</p>
+</div>
+<div id="Downloads" class="content">
+    <h1>Downloads</h1>
+    <p>You can download a free 10 days trial.</p>
+</div>
+
+<button class="tab" onclick="openTitle('About', this, 'tomato')">About</button>
+<button class="tab" onclick="openTitle('Products', this, 'darkolivegreen')">Products</button>
+<button class="tab" onclick="openTitle('Technology', this, 'dodgerblue')">Technology</button>
+<button class="tab" onclick="openTitle('Downloads', this, 'orange')">Downloads</button>
+
+<div id="counter">
+    1
+</div>
+</body>
+<script th:inline="javascript">
+    function openTitle(tabname, button, color) {
+        document.getElementById("counter").innerText++
+        let menuNames = ["About", "Products", "Technology", "Downloads"]
+        menuNames.forEach(it => document.getElementById(it).style.display = "none")
+        document.getElementById(tabname).style.display = "block"
+
+        Array.from(document.getElementsByClassName("tab"))
+            .forEach(it => it.style.backgroundColor = "#555")
+
+        button.style.backgroundColor = color
+    }
+
+
+    console.log("Hello world")
+    // var name = prompt("Input")
+    // alert("환영합니다. " + name)
+    document.getElementById("Technology").style.display = "block"
+</script>
+
+</html>
